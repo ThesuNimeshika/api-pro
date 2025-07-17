@@ -39,6 +39,8 @@ const Docs = () => {
           <PostUsersDoc />
         ) : activeLink === 'GET /analytics' ? (
           <GetAnalyticsDoc />
+        ) : activeLink === 'GET /logs' ? (
+          <GetLogsDoc />
         ) : (
           <p>Documentation content for {activeLink} will go here.</p>
         )}
@@ -240,6 +242,45 @@ const GetAnalyticsDoc = () => (
   "average_response_time_ms": 142,
   "data_range": "2025-07-01 to 2025-07-17"
 }`}</code>
+    </pre>
+  </>
+);
+
+const GetLogsDoc = () => (
+  <>
+    <h2>GET /v1/logs</h2>
+    <p>Fetches a list of recent API request logs for your project, including status, endpoint, and timestamp.</p>
+    <h3>Example Request</h3>
+    <pre style={{ backgroundColor: '#f4f4f4', padding: '1rem', borderRadius: 6, overflowX: 'auto' }}>
+      <code>{`fetch('https://api-pro.com/v1/logs', {
+  method: 'GET',
+  headers: {
+    'Authorization': 'Bearer YOUR_API_TOKEN',
+  },
+})
+  .then(response => response.json())
+  .then(data => console.log(data))
+  .catch(error => console.error(error));`}</code>
+    </pre>
+    <h3>Example Response (200 OK)</h3>
+    <pre style={{ backgroundColor: '#f4f4f4', padding: '1rem', borderRadius: 6, overflowX: 'auto' }}>
+      <code>{`[
+  {
+    "id": "log_001",
+    "method": "GET",
+    "endpoint": "/v1/users",
+    "status": 200,
+    "timestamp": "2025-07-17T08:42:15Z"
+  },
+  {
+    "id": "log_002",
+    "method": "POST",
+    "endpoint": "/v1/users",
+    "status": 201,
+    "timestamp": "2025-07-17T08:40:03Z"
+  }
+  // ...more logs
+]`}</code>
     </pre>
   </>
 );
