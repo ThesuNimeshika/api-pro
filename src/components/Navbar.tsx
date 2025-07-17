@@ -31,7 +31,7 @@ const Navbar = () => {
         ))}
       </div>
       <div className="navbar-actions">
-        <button className="navbar-signin">Sign in</button>
+       
       </div>
     </nav>
   );
