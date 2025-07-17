@@ -37,6 +37,8 @@ const Docs = () => {
           <GetUsersDoc />
         ) : activeLink === 'POST /users' ? (
           <PostUsersDoc />
+        ) : activeLink === 'GET /analytics' ? (
+          <GetAnalyticsDoc />
         ) : (
           <p>Documentation content for {activeLink} will go here.</p>
         )}
@@ -208,6 +210,35 @@ const AuthenticationDoc = () => (
       <code>{`{
   "error": "Unauthorized",
   "message": "Invalid or missing API token"
+}`}</code>
+    </pre>
+  </>
+);
+
+const GetAnalyticsDoc = () => (
+  <>
+    <h2>GET /v1/analytics</h2>
+    <p>Retrieves usage analytics for your API project — including requests, errors, and performance metrics.</p>
+    <h3>Example Request</h3>
+    <pre style={{ backgroundColor: '#f4f4f4', padding: '1rem', borderRadius: 6, overflowX: 'auto' }}>
+      <code>{`fetch('https://api-pro.com/v1/analytics', {
+  method: 'GET',
+  headers: {
+    'Authorization': 'Bearer YOUR_API_TOKEN',
+  },
+})
+  .then(response => response.json())
+  .then(data => console.log(data))
+  .catch(error => console.error(error));`}</code>
+    </pre>
+    <h3>Example Response (200 OK)</h3>
+    <pre style={{ backgroundColor: '#f4f4f4', padding: '1rem', borderRadius: 6, overflowX: 'auto' }}>
+      <code>{`{
+  "total_requests": 15824,
+  "successful_requests": 15310,
+  "failed_requests": 514,
+  "average_response_time_ms": 142,
+  "data_range": "2025-07-01 to 2025-07-17"
 }`}</code>
     </pre>
   </>
