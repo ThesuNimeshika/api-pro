@@ -31,7 +31,9 @@ const Docs = () => {
 
       {/* Content */}
       <section style={{ flex: 1 }}>
-        {activeLink === 'GET /users' ? (
+        {activeLink === 'Authentication' ? (
+          <AuthenticationDoc />
+        ) : activeLink === 'GET /users' ? (
           <GetUsersDoc />
         ) : (
           <p>Documentation content for {activeLink} will go here.</p>
@@ -119,6 +121,58 @@ const GetUsersDoc = () => (
   }
   // ...more users
 ]`}</code>
+    </pre>
+  </>
+);
+
+const AuthenticationDoc = () => (
+  <>
+    <h2 style={{ display: 'flex', alignItems: 'center', gap: '0.5em' }}>
+      <span role="img" aria-label="lock">🔐</span> GETTING STARTED: Authentication
+    </h2>
+    <p>To access the API, all requests must be authenticated using a <b>Bearer Token</b>. You can generate this token from your API Pro dashboard.</p>
+    <p>Include the token in the <b>Authorization</b> header of every request you make.</p>
+    <h3>Example Request</h3>
+    <pre style={{ backgroundColor: '#f4f4f4', padding: '1rem', borderRadius: 6, overflowX: 'auto' }}>
+      <code>{`fetch('https://api-pro.com/v1/some-endpoint', {
+  method: 'GET',
+  headers: {
+    'Authorization': 'Bearer YOUR_API_TOKEN',
+  },
+})
+.then(response => response.json())
+.then(data => console.log(data))
+.catch(error => console.error(error));`}</code>
+    </pre>
+    <h3>Headers</h3>
+    <table style={{ borderCollapse: 'collapse', marginBottom: '1em' }}>
+      <thead>
+        <tr>
+          <th style={{ border: '1px solid #ddd', padding: '0.4em 1em', background: '#f4f4f4' }}>Key</th>
+          <th style={{ border: '1px solid #ddd', padding: '0.4em 1em', background: '#f4f4f4' }}>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style={{ border: '1px solid #ddd', padding: '0.4em 1em' }}>Authorization</td>
+          <td style={{ border: '1px solid #ddd', padding: '0.4em 1em' }}>Bearer YOUR_API_TOKEN</td>
+        </tr>
+        <tr>
+          <td style={{ border: '1px solid #ddd', padding: '0.4em 1em' }}>Content-Type</td>
+          <td style={{ border: '1px solid #ddd', padding: '0.4em 1em' }}>application/json</td>
+        </tr>
+      </tbody>
+    </table>
+    <div style={{ display: 'flex', alignItems: 'center', gap: '0.5em', marginBottom: '1em', color: '#d97706' }}>
+      <span role="img" aria-label="warning">⚠️</span>
+      <span><b>Note:</b> If the token is missing or invalid, the API will return a <b>401 Unauthorized</b> error.</span>
+    </div>
+    <h3>Example Error Response (401 Unauthorized)</h3>
+    <pre style={{ backgroundColor: '#f4f4f4', padding: '1rem', borderRadius: 6, overflowX: 'auto' }}>
+      <code>{`{
+  "error": "Unauthorized",
+  "message": "Invalid or missing API token"
+}`}</code>
     </pre>
   </>
 );
