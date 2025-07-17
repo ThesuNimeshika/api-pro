@@ -1,6 +1,7 @@
 /* Modern Navbar Styles */
 .navbar-bar {
   width: 100vw;
+  max-width: 100vw;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -399,6 +400,7 @@
 .team-section {
   position: relative;
   width: 100vw;
+  max-width: 100vw;
   left: 50%;
   right: 50%;
   margin-left: -50vw;
@@ -595,6 +597,7 @@
 }
 .features-section {
   padding: 60px 20px;
+  max-width: 100vw;
   text-align: center;
   background-color: #f9f9f9;
 }
@@ -646,6 +649,7 @@
 /* Social Proof Section Styles */
 .social-proof-section {
   padding: 48px 20px;
+  max-width: 100vw;
   text-align: center;
   background-color: #f3f4f6;
 }
@@ -691,4 +695,8 @@
     transform: translateY(0);
   }
 }
- 
+
+html, body {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
