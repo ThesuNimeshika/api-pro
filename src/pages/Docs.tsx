@@ -35,6 +35,8 @@ const Docs = () => {
           <AuthenticationDoc />
         ) : activeLink === 'GET /users' ? (
           <GetUsersDoc />
+        ) : activeLink === 'POST /users' ? (
+          <PostUsersDoc />
         ) : (
           <p>Documentation content for {activeLink} will go here.</p>
         )}
@@ -125,10 +127,44 @@ const GetUsersDoc = () => (
   </>
 );
 
+const PostUsersDoc = () => (
+  <>
+    <h2>POST /v1/users</h2>
+    <p>Creates a new user in your project.</p>
+    <h3>Example Request</h3>
+    <pre style={{ backgroundColor: '#f4f4f4', padding: '1rem', borderRadius: 6, overflowX: 'auto' }}>
+      <code>{`fetch('https://api-pro.com/v1/users', {
+  method: 'POST',
+  headers: {
+    'Authorization': 'Bearer YOUR_API_TOKEN',
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify({
+    name: 'Jane Doe',
+    email: 'jane@apipro.com',
+    website: 'janedoe.com',
+  }),
+})
+  .then(response => response.json())
+  .then(data => console.log(data))
+  .catch(error => console.error(error));`}</code>
+    </pre>
+    <h3>Example Response (201 Created)</h3>
+    <pre style={{ backgroundColor: '#f4f4f4', padding: '1rem', borderRadius: 6, overflowX: 'auto' }}>
+      <code>{`{
+  "id": 3,
+  "name": "Jane Doe",
+  "email": "jane@apipro.com",
+  "website": "janedoe.com"
+}`}</code>
+    </pre>
+  </>
+);
+
 const AuthenticationDoc = () => (
   <>
     <h2 style={{ display: 'flex', alignItems: 'center', gap: '0.5em' }}>
-      <span role="img" aria-label="lock">🔐</span> GETTING STARTED: Authentication
+      <span role="img" aria-label="lock">🔐</span>Authentication
     </h2>
     <p>To access the API, all requests must be authenticated using a <b>Bearer Token</b>. You can generate this token from your API Pro dashboard.</p>
     <p>Include the token in the <b>Authorization</b> header of every request you make.</p>
