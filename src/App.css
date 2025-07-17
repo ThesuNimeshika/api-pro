@@ -87,6 +87,60 @@
   color: #4f46e5;
   box-shadow: 0 2px 8px rgba(99,102,241,0.10);
 }
+@media (max-width: 900px) {
+  .navbar-links {
+    gap: 1.2rem;
+  }
+}
+@media (max-width: 700px) {
+  .navbar-links {
+    display: none;
+  }
+  .navbar-actions {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+  }
+  .navbar-menu-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.3em 0.7em;
+    font-size: 2.2rem;
+    color: #6366f1;
+    transition: color 0.18s;
+  }
+  .navbar-menu-btn:hover {
+    color: #4f46e5;
+  }
+  .navbar-mobile-menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 80vw;
+    max-width: 340px;
+    height: 100vh;
+    background: #fff;
+    box-shadow: -2px 0 16px rgba(99,102,241,0.10);
+    display: flex;
+    flex-direction: column;
+    padding: 2.5rem 1.2rem 1.2rem 1.2rem;
+    z-index: 9999;
+    animation: slideInMenu 0.22s ease;
+  }
+  @keyframes slideInMenu {
+    from { right: -100vw; opacity: 0; }
+    to { right: 0; opacity: 1; }
+  }
+  .navbar-mobile-menu .navbar-link {
+    margin-bottom: 1.2rem;
+    font-size: 1.18rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    width: 100%;
+    justify-content: flex-start;
+  }
+}
 /* Contact Section Styles */
 .contact-section {
   background: linear-gradient(120deg, #6366f1 0%, #60a5fa 100%);
