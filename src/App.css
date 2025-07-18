@@ -964,3 +964,52 @@ html, body {
   box-shadow: 0 8px 24px rgba(99,102,241,0.18);
   transform: scale(1.06);
 }
+/* Docs Page Styles */
+.docs-main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0rem;
+  display: flex;
+  gap: 2rem;
+}
+.docs-sidebar {
+  width: 250px;
+  border-right: 1px solid #ddd;
+  padding-right: 1rem;
+  min-width: 180px;
+}
+.docs-content {
+  flex: 1;
+  min-width: 0;
+}
+@media (max-width: 900px) {
+  .docs-main {
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0.5rem;
+  }
+  .docs-sidebar {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #ddd;
+    padding-right: 0;
+    padding-bottom: 1rem;
+    min-width: 0;
+  }
+  .docs-content {
+    width: 100%;
+    min-width: 0;
+  }
+}
+@media (max-width: 600px) {
+  .docs-main {
+    padding: 0.2rem;
+  }
+  .docs-sidebar {
+    font-size: 1em;
+    padding-bottom: 0.5rem;
+  }
+  .docs-content {
+    font-size: 0.98em;
+  }
+}
