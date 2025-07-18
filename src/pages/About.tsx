@@ -69,7 +69,26 @@ const About = () => {
         </div>
         <h2 className="team-title">The Team Behind API PRO</h2>
         {loading ? (
-          <p>Loading team...</p>
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', margin: '2rem 0' }}>
+            <div
+              style={{
+                width: '48px',
+                height: '48px',
+                border: '5px solid #e0e7ff',
+                borderTop: '5px solid #6366f1',
+                borderRadius: '50%',
+                animation: 'spin 1s linear infinite',
+                marginBottom: '1rem',
+              }}
+            />
+            <p>Loading team...</p>
+            <style>{`
+              @keyframes spin {
+                0% { transform: rotate(0deg); }
+                100% { transform: rotate(360deg); }
+              }
+            `}</style>
+          </div>
         ) : (
           <div className="team-grid">
             {team.map(({ id, name, email, website }) => (
