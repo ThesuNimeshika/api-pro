@@ -1,5 +1,5 @@
-
 import { useState } from 'react';
+import contactBg from '../assets/contact.png';
 
 const contactDetails = [
   {
@@ -40,8 +40,41 @@ const Contact = () => {
   };
 
   return (
-    <section className="contact-section">
-      <div className="contact-container">
+    <section
+      className="contact-section"
+      style={{
+        position: 'relative',
+        width: '100%',
+        minHeight: '100vh',
+        background: `url(${contactBg}) center/cover no-repeat`,
+        overflow: 'hidden',
+      }}
+    >
+      <div
+        style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          background: 'rgba(255,255,255,0.55)', // more visible transparency layer
+          zIndex: 1,
+          pointerEvents: 'none',
+        }}
+      />
+      <div
+        style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          background: 'rgba(120, 80, 200, 0.13)',
+          zIndex: 2,
+          pointerEvents: 'none',
+        }}
+      />
+      <div className="contact-container" style={{ position: 'relative', zIndex: 3 }}>
         <h2 className="contact-title">Get In Touch</h2>
         <p className="contact-subtitle">
           Have a technical question, a sales inquiry, or just want to chat? We'd love to hear from you.
