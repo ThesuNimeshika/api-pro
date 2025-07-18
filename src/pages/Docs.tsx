@@ -1,12 +1,13 @@
 import { useState } from 'react';
 
 const Docs = () => {
-  const [activeLink, setActiveLink] = useState('GET /users');
+  // Set default active link to 'Authentication' instead of 'GET /users'
+  const [activeLink, setActiveLink] = useState('Authentication');
 
   return (
-    <main style={{ maxWidth: 900, margin: '0 auto', padding: '1rem', display: 'flex', gap: '2rem' }}>
+    <main className="docs-main">
       {/* Sidebar */}
-      <nav style={{ width: '250px', borderRight: '1px solid #ddd', paddingRight: '1rem' }}>
+      <nav className="docs-sidebar">
         <Category title="GETTING STARTED">
           <SidebarLink
             isActive={activeLink === 'Authentication'}
@@ -30,7 +31,7 @@ const Docs = () => {
       </nav>
 
       {/* Content */}
-      <section style={{ flex: 1 }}>
+      <section className="docs-content">
         {activeLink === 'Authentication' ? (
           <AuthenticationDoc />
         ) : activeLink === 'GET /users' ? (
