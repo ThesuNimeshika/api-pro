@@ -57,7 +57,7 @@ const Contact = () => {
           left: 0,
           width: '100%',
           height: '100%',
-          background: 'rgba(255,255,255,0.55)', // more visible transparency layer
+          background: 'rgba(255, 255, 255, 0.81)', // increased opacity for clarity
           zIndex: 1,
           pointerEvents: 'none',
         }}

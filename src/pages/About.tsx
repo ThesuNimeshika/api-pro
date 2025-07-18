@@ -28,9 +28,15 @@ const About = () => {
         className="about-mission"
         style={{
           position: 'relative',
-          width: '100%',
+          width: '58vw', // less wide for better balance
+          marginLeft: 'auto',
+          marginRight: 'auto',
           background: `url(${missionBg}) center/cover no-repeat`,
           overflow: 'hidden',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
         }}
       >
         <div
@@ -40,7 +46,7 @@ const About = () => {
             left: 0,
             width: '100%',
             height: '100%',
-            background: 'rgba(255,255,255,0.62)', // strong transparency for clarity
+            background: 'rgba(255, 255, 255, 0.66)', // less opacity for more visible image
             zIndex: 1,
             pointerEvents: 'none',
           }}
