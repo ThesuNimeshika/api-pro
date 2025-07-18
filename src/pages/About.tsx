@@ -1,5 +1,5 @@
-
 import { useEffect, useState } from 'react';
+import missionBg from '../assets/mission.png';
 
 type User = {
   id: number;
@@ -24,12 +24,34 @@ const About = () => {
 
   return (
     <main className="about-main">
-      <section className="about-mission">
-        <h2 className="about-title">Our Mission</h2>
-        <h3 className="about-headline">We Empower Developers to Build The Future.</h3>
-        <p className="about-body">
-          In today's digital world, APIs are the backbone of innovation. Yet, managing them has become increasingly complex. API PRO was founded on a simple principle: to give developers and businesses the tools they need to build, manage, and scale their APIs without the headache. We handle the complexity, so you can focus on creating amazing products.
-        </p>
+      <section
+        className="about-mission"
+        style={{
+          position: 'relative',
+          width: '100%',
+          background: `url(${missionBg}) center/cover no-repeat`,
+          overflow: 'hidden',
+        }}
+      >
+        <div
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            background: 'rgba(255,255,255,0.62)', // strong transparency for clarity
+            zIndex: 1,
+            pointerEvents: 'none',
+          }}
+        />
+        <div style={{ position: 'relative', zIndex: 2 }}>
+          <h2 className="about-title">Our Mission</h2>
+          <h3 className="about-headline">We Empower Developers to Build The Future.</h3>
+          <p className="about-body">
+            In today's digital world, APIs are the backbone of innovation. Yet, managing them has become increasingly complex. API PRO was founded on a simple principle: to give developers and businesses the tools they need to build, manage, and scale their APIs without the headache. We handle the complexity, so you can focus on creating amazing products.
+          </p>
+        </div>
       </section>
 
       <section className="team-section">
